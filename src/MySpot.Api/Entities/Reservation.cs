@@ -1,13 +1,15 @@
-﻿namespace MySpot.Api.Entities
+﻿using MySpot.Api.ValueObjects;
+
+namespace MySpot.Api.Entities
 {
     public class Reservation
     {
-        public Guid Id { get; set; }
-        public string EmployeeName { get; private set; }
-        public string LicensePlate { get; private set; }
-        public DateTime Date { get; set; }
+        public ReservationId Id { get; set; }
+        public EmployeeName EmployeeName { get; private set; }
+        public LicensePlate LicensePlate { get; private set; }
+        public Date Date { get; set; }
 
-        public Reservation(Guid id, string employeeName, string licensePlate, DateTime date)
+        public Reservation(ReservationId id, EmployeeName employeeName, LicensePlate licensePlate, Date date)
         {
             Id = id;
             EmployeeName = employeeName;
@@ -15,7 +17,7 @@
             Date = date;
         }
 
-        public void ChangeLicensePlate(string licensePlate)
+        public void ChangeLicensePlate(LicensePlate licensePlate)
             => LicensePlate = licensePlate;
     }
 }

@@ -1,8 +1,10 @@
+using MySpot.Api.Exceptions;
+
 namespace MySpot.Api.ValueObjects;
 
 public record ParkingSpotName(string Value)
 {
-    public string Value { get; } = Value ?? throw new InvalidParkingSpotNameException();
+    public string Value { get; } = Value ?? throw new InvalidParkingSpotNameException(Value);
 
     public static implicit operator string(ParkingSpotName name) => name.Value;
 

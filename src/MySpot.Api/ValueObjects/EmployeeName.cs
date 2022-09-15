@@ -4,7 +4,7 @@ namespace MySpot.Api.ValueObjects;
 
 public record EmployeeName(string Value)
 {
-        public string Value { get; } = Value ?? throw new InvalidEmployeeNameException();
+        public string Value { get; } = Value ?? throw new InvalidEmployeeNameException(Value);
 
         public static implicit operator string(EmployeeName name)
             => name.Value;
